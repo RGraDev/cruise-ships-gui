@@ -1,7 +1,7 @@
 class Ship {
-  constructor() {
-    this.startingPort = "Southampton";
+  constructor(startingPort) {
+    this.startingPort = startingPort;
   }
 }
 
-module.exports(Ship);
+module.exports = Ship;
