@@ -1,9 +1,9 @@
 class Ship {
   constructor(itinerary) {
     this.itinerary = itinerary;
-    this.startingPort = itinerary.ports[0];
-    this.currentPort = this.startingPort;
+    this.currentPort = itinerary.ports[0];
     this.previousPort = null;
+    this.currentPort.addShip(this);
   }
 
   setSail() {
@@ -14,6 +14,8 @@ class Ship {
 
     this.previousPort = this.currentPort;
     this.currentPort = null;
+
+    this.previousPort.removeShip(this);
   }
 
   dock() {

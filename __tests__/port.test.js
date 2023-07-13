@@ -6,3 +6,26 @@ describe("constructor", function () {
     expect(new Port("Southampton")).toBeInstanceOf(Object);
   });
 });
+
+describe("addShip", function () {
+  it("add a ship to the ships property", function () {
+    const port = new Port("Dover");
+    const ship = {};
+
+    port.addShip(ship);
+
+    expect(port.ships).toContain(ship);
+  });
+});
+
+describe("removeShip", function() {
+  const port = new Port("Dover");
+  const titanic = {};
+  const queenMary = {};
+
+  port.addShip(titanic);
+  port.addShip(queenMary);
+  port.removeShip(titanic);
+
+  expect(port.ships).toContain(queenMary);
+});
