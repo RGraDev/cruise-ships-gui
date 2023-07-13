@@ -1,4 +1,9 @@
-const { expect, describe, it, beforeEach } = require("@jest/globals");
+const {
+  expect,
+  describe,
+  it,
+  beforeEach,
+} = require("@jest/globals");
 const Port = require("../src/Port");
 
 describe("Port", () => {
@@ -15,9 +20,9 @@ describe("Port", () => {
 
     beforeEach(() => {
       dover = new Port("Dover");
-      ship = {};
-      titanic = {};
-      queenMary = {};
+      ship = jest.fn();
+      titanic = jest.fn();
+      queenMary = jest.fn();
     });
     it("adds a ship to the ships property", function () {
       dover.addShip(ship);

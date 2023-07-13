@@ -8,4 +8,10 @@ describe("constructor", function () {
   it("should have a ports property", function () {
     expect(new Itinerary()).toHaveProperty("ports");
   });
+  it("can have ports", () => {
+    const dover = jest.fn();
+    const calais = jest.fn();
+    const itinerary = new Itinerary(dover, calais);
+    expect(itinerary.ports).toEqual([dover, calais]);
+  });
 });
