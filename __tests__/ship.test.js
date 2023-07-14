@@ -1,7 +1,6 @@
 const { expect, describe, it, beforeEach } = require("@jest/globals");
 const Ship = require("../src/Ship");
-const Itinerary = require("../src/Itinerary");
-
+require("../src/Itinerary");
 describe("Ship", () => {
   describe("with ports and itinerary", () => {
     let dover;
@@ -24,9 +23,13 @@ describe("Ship", () => {
         ships: [],
       };
 
-      itinerary = new Itinerary([dover, calais]);
+      itinerary = {
+        ports: [dover, calais],
+      };
+
       ship = new Ship(itinerary);
     });
+
     it("Should set sail", () => {
       ship.setSail();
       expect(ship.currentPort).toBeFalsy();
